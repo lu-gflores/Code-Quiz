@@ -8,6 +8,12 @@ var showResults = document.getElementById("results");
 var submitBtn = document.getElementById("submitScore");
 var userInput = document.getElementById("userName");
 var formEL = document.getElementById("showHighScore");
+
+//ids from highscore.html
+var backBtnEl = document.getElementById("backBtn");
+var clearBtnEl = document.getElementById("clearBtn");
+
+
 //hides choice buttons at start
 showChoices.style.visibility = "hidden";
 
@@ -21,7 +27,8 @@ var secondsLeft = 80;
 //counter set to negative to it can be incremeted to 0 as the index for questions[] in showQuestions()
 var currentQuestion = -1;
 var rightChoice;
-//questions array
+
+//questions object array
 var questions = [ {
     question: "Commonly used data types do NOT include: ",
     answers : ["1. string ", "2. alerts", "3. boolean ", "4. numbers"],
@@ -84,13 +91,14 @@ function start() {
 //displays quiz questions
 function showQuestions() {
     currentQuestion++;
+    //variable for the correct choice from questions object
     rightChoice = questions[currentQuestion].correct;
      //takes question from object array and sets it as the head question 
     questionTopic.textContent= questions[currentQuestion].question;
     showChoices.innerHTML = "";
+    //display answer buttons from questions object
     var answerList = questions[currentQuestion].answers;
     for (var i = 0 ; i < answerList.length; i++) {
-        //create button element for answer choices
         var next = document.createElement("button");
         next.textContent = answerList[i];
         var answerButton;
@@ -113,16 +121,33 @@ showChoices.addEventListener("click", function(event) {
     showQuestions();//move on to next question
 });
 
-//display results and allow to add to high score
+//display results 
 function finalResults () {
-    showResults.textContent = "Here is your score: " + secondsLeft;
-    var highScore =  JSON.parse(localStorage.getItem("highScore"));
-
-    localStorage.setItem("highScore", JSON.stringify(highScore));
-
+  showResults.textContent = "Here is your score: " + secondsLeft;
+    // var userHighScore = JSON.parse(localStorage.getItem("userHighScore"));
+    // localStorage.setItem("userHighScore", JSON.stringify(userHighScore));
 }
+
 //event listener for submitting high score
 submitBtn.addEventListener("click", function(event) {
     event.stopPropagation();
     finalResults();
-})
+
+    var name = userInput.value;
+    var data = { 
+        name : name, 
+        score: secondsLeft
+    };
+    var scoreStore = localStorage.getItem("scoreStore");
+    if (scoreStore === null ) {
+        scoreStore =[];
+    } else {
+        scoreStore = JSON.parse(scoreStore);
+    } 
+    scoreStore.push(data);
+    var newStore = JSON.stringify(scoreStore);
+    localStorage.setItem("scoreStore", newStore);
+    window.location.href = './highscore.html';
+        
+});
+

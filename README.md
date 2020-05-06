@@ -1,6 +1,6 @@
-# 04 Web APIs: Code Quiz
+# Code Quiz
 
-As you proceed in your career as a web developer, you will probably be asked to complete a coding assessment, which is typically a combination of multiple-choice questions and interactive challenges. Build a timed code quiz with multiple-choice questions. This app will run in the browser and feature dynamically updated HTML and CSS powered by your JavaScript code. It will also feature a clean and polished user interface and be responsive, ensuring that it adapts to multiple screen sizes.
+This project involves creating a timed, interactive multiple choice quiz using the JavaScript fundamentals taught thus far. It also features a dynamically updated HTML, CSS, and Bootstrap components that adapt the user's screen size. As a beginner developer, this serves as a great practice in creating a coding assessment that will no doubt be assigned as I progress down the developer field and will likely feature other elements besides multiple choice. Using JavaScript, this project contains unique functionality such as a timer, local storage to store user scores and names, creating and appending HTML elements on the quiz, event listeners for user responses, etc. To ensure that I create the appropriate application, I followed the user story and criteria as shown below so that it functions correctly. 
 
 ## User Story
 
@@ -9,9 +9,7 @@ AS A coding bootcamp student
 I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
 SO THAT I can gauge my progress compared to my peers
 ```
-
 ## Acceptance Criteria
-
 ```
 GIVEN I am taking a code quiz
 WHEN I click the start button
@@ -25,18 +23,4 @@ THEN the game is over
 WHEN the game is over
 THEN I can save my initials and score
 ```
-
-The following animation demonstrates the application functionality:
-
-![code quiz](./Assets/04-web-apis-homework-demo.gif)
-
-### Review
-
-You are required to submit the following for review:
-
-* The URL of the functional, deployed application.
-
-* The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
-
-- - -
 © 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
